@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({
     items: Array
@@ -27,7 +27,11 @@ defineProps({
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </a>
-                            <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 mb-2 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
+                            
+
+                            <div class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 mb-2 focus:outline-none hover:bg-indigo-600 rounded">
+                                <Link as="button" :href="route('items.create')">商品登録</Link>
+                            </div>
                             </div>
                             <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                             <table class="table-auto w-full text-left whitespace-no-wrap">
