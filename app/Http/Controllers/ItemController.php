@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Item;
+use Inertia\Inertia; 
 
 class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index() 
+    { 
+        $items = Item::select('id', 'name', 'price', 'is_selling')->get();
+
+        return Inertia::render('Items/index', [
+            'items' => $items,
+        ]); 
     }
 
     /**
