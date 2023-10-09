@@ -2,39 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ItemService;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
-use App\Models\Item;
 use Inertia\Inertia; 
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index() 
-    { 
-        $items = Item::select('id', 'name', 'price', 'is_selling')->get();
+    protected $itemService;
 
+    public function __construct(ItemService $itemService)
+    {
+        $this->itemService = $itemService;
+    }
+
+    public function index() 
+    {
+        $items = $this->itemService->getAllItems();
+        
         return Inertia::render('Items/Index', [
             'items' => $items,
         ]); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return Inertia::render('Items/Create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreItemRequest $request)
     {
-        Item::create([
+        $this->itemService->storeItem([
             'name'  => $request->name,
             'memo'  => $request->memo,
             'price' => $request->price,
