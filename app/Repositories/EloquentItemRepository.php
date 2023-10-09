@@ -14,6 +14,11 @@ class EloquentItemRepository implements ItemRepositoryInterface
         return Item::select('id', 'name', 'price', 'is_selling')->get();
     }
 
+    public function create(array $attributes)
+    {
+        return Item::create($attributes);
+    }
+
     public function find(int $id)
     {
         return Item::find($id);
