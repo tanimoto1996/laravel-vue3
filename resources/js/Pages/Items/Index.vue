@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
+import FlashMessage from '@/Components/FlashMessage.vue'
 
 defineProps({
     items: Array
@@ -21,6 +22,9 @@ defineProps({
                     <div class="p-6 text-gray-900">
                         <section class="text-gray-600 body-font">
                         <div class="container px-5 py-8 mx-auto">
+
+                            <FlashMessage />
+
                             <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
                             <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
