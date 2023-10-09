@@ -18,22 +18,4 @@ class EloquentItemRepository implements ItemRepositoryInterface
     {
         return Item::find($id);
     }
-
-    public function create(array $attributes)
-    {
-        return Item::create($attributes);
-    }
-
-    public function update(int $id, array $attributes)
-    {
-        $item = $this->find($id);
-        $item->update($attributes);
-        return $item;
-    }
-
-    public function delete(int $id)
-    {
-        $item = $this->find($id);
-        return $item->delete();
-    }
 }

@@ -22,4 +22,9 @@ class ItemService implements ItemServiceInterface
     {
         return $this->itemRepository->create($data);
     }
+
+    public function getFindItems($id)
+    {
+        return $this->itemRepository->find($id);
+    }
 }
