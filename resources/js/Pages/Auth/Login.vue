@@ -85,6 +85,8 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
+                <Link :href="route('guest.login')">ゲストログイン</Link>
+
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     ログイン
                 </PrimaryButton>

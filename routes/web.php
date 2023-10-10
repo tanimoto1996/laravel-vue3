@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GuestLoginController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,6 +19,7 @@ use App\Http\Controllers\ItemController;
 |
 */
 
+Route::get('/guest-login', [GuestLoginController::class, 'guestLogin'])->name('guest.login');
 
 Route::resource('items', ItemController::class) 
 ->middleware(['auth', 'verified']);

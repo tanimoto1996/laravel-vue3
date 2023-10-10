@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\EloquentItemRepository;
+use App\Repositories\EloquentGuestRepository;
 use App\Repositories\ItemRepositoryInterface;
+use App\Repositories\GuestRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(ItemRepositoryInterface::class, EloquentItemRepository::class);
+        $this->app->bind(GuestRepositoryInterface::class, EloquentGuestRepository::class);
     }
 
     /**
