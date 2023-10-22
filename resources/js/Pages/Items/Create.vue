@@ -3,6 +3,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import TextAreaInput from '@/Components/TextAreaInput.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { reactive } from 'vue';
@@ -50,7 +51,7 @@ const storeItem = () => {
                         
                             <InputLabel for="memo" value="memo" />
 
-                            <TextInput
+                            <TextAreaInput
                                 id="memo"
                                 type="text"
                                 class="mt-1 block w-full"

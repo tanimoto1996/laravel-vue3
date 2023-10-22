@@ -2,6 +2,7 @@
 import '/resources/scss/Items/show.scss';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import { nl2br } from '@/common'
 
 defineProps({
     item: Object,
@@ -25,7 +26,7 @@ defineProps({
                             {{ item.name }}
                         </div>
                         <div class="text-color">
-                            {{ item.memo }}
+                            <div class="text-color" v-html="nl2br(item.memo)"></div>
                         </div>
                         <div class="text-color">
                             {{ item.price }}
