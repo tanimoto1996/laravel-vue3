@@ -1,8 +1,9 @@
 <script setup>
 import '/resources/scss/Items/show.scss';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { nl2br } from '@/common'
+
 
 defineProps({
     item: Object,
@@ -35,6 +36,9 @@ defineProps({
                             <span v-if="item.is_selling === true">販売中</span> 
                             <span v-if="item.is_selling === false">停止中</span> 
                         </div>
+                        <Link as="button" :href="route('items.edit', { item: item.id})">
+                            編集する
+                        </Link>
                     </div>
                 </div>
             </div>
