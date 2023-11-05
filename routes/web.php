@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\MypageController;
 
 
 /*
@@ -34,9 +35,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('DashboardContainer');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('DashboardContainer');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
